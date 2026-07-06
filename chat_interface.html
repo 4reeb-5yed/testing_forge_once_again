@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatbot Interface</title>
+  <style>
+    .chat-container {
+      width: 400px;
+      height: 500px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow-y: scroll;
+      padding: 10px;
+    }
+    .chat-message {
+      margin-bottom: 10px;
+    }
+    .user-message {
+      text-align: right;
+      color: #007bff;
+    }
+    .bot-message {
+      text-align: left;
+      color: #6c757d;
+    }
+    .input-container {
+      margin-top: 10px;
+      display: flex;
+    }
+    .input-container input {
+      flex-grow: 1;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .input-container button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-message user-message">Hello, how can I help you today?</div>
+    <div class="chat-message bot-message">Hi there! I'm the chatbot. How can I assist you?</div>
+  </div>
+  <div class="input-container">
+    <input type="text" placeholder="Type your message..." id="chat-input">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    const chatContainer = document.querySelector('.chat-container');
+
+    function sendMessage() {
+      const inputField = document.getElementById('chat-input');
+      const message = inputField.value.trim();
+      if (message) {
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('chat-message', 'user-message');
+        userMessage.textContent = message;
+        chatContainer.appendChild(userMessage);
+
+        // Simulate a bot response after a short delay
+        setTimeout(() => {
+          const botMessage = document.createElement('div');
+          botMessage.classList.add('chat-message', 'bot-message');
+          botMessage.textContent = 'I understand. Let me think about that and get back to you.';
+          chatContainer.appendChild(botMessage);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+        }, 1000);
+
+        inputField.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
