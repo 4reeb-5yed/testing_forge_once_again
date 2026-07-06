@@ -1,0 +1,35 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+entities:
+  - name
+slots:
+  user_name:
+    type: text
+    mappings:
+    - type: from_text
+      intent: greet
+responses:
+  utter_greet:
+    - "Hey there! How can I assist you today?"
+  utter_goodbye:
+    - "Goodbye, have a great day!"
+  utter_affirm:
+    - "Sounds good!"
+  utter_deny:
+    - "Okay, no problem."
+  utter_mood_great:
+    - "I'm glad to hear you're doing well!"
+  utter_mood_unhappy:
+    - "I'm sorry to hear you're not feeling great. Is there anything I can do to help?"
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_affirm
+  - utter_deny
+  - utter_mood_great
+  - utter_mood_unhappy

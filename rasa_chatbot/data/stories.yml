@@ -1,0 +1,36 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+    entities:
+      - name: John
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_mood_great
+
+- story: sad path
+  steps:
+  - intent: greet
+    entities:
+      - name: Sarah
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_mood_unhappy
+
+- story: affirm path
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+
+- story: deny path
+  steps:
+  - intent: deny
+  - action: utter_deny
+
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
